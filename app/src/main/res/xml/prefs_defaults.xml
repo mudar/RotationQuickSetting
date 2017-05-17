@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Orientation-->
+    <SwitchPreference
+        android:checked="false"
+        android:key="@string/prefs_key_reverse_land" />
+    <SwitchPreference
+        android:checked="false"
+        android:key="@string/prefs_key_reverse_port" />
+    <SwitchPreference
+        android:checked="false"
+        android:key="@string/prefs_key_auto_rotate" />
+</PreferenceScreen>

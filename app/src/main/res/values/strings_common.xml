@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--About-->
+    <string name="url_playstore" translatable="false">http://play.google.com/store/apps/details?id=ca.mudar.orientationtile</string>
+    <string name="url_mudar_ca" translatable="false">http://www.mudar.ca/</string>
+    <string name="url_github" translatable="false">https://github.com/mudar/ScreenOrientationTile</string>
+
+    <string name="prefs_key_permission_granted">prefs_permission_granted</string>
+    <string name="prefs_key_reverse_port">prefs_reverse_port</string>
+    <string name="prefs_key_reverse_land">prefs_reverse_land</string>
+    <string name="prefs_key_auto_rotate">prefs_auto_rotate</string>
+    <string name="prefs_key_about">prefs_about</string>
+    <!--<string name="prefs_key_version">prefs_version</string>-->
+
+</resources>

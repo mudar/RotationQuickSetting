@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Rotation Quick Setting</string>
+    <string name="tile_label">Rotation QS</string>
+    <string name="tile_label_port">Portrait</string>
+    <string name="tile_label_land">Landscape</string>
+    <string name="tile_label_auto_rotate">Auto-rotate</string>
+    <string name="notify_permissions_title">System permission request</string>
+    <string name="notify_permissions_text">Tap to allow modifying screen rotation setting.</string>
+
+    <!--Settings-->
+    <string name="prefs_cat_permission">Permission</string>
+    <string name="prefs_cat_orientation">Rotation</string>
+    <string name="prefs_cat_about">About</string>
+    <string name="prefs_permission_granted_title">Modify settings permission</string>
+    <string name="prefs_permission_granted_on">Granted</string>
+    <string name="prefs_permission_granted_off">Not granted, app is disabled</string>
+    <string name="prefs_reverse_port_title">Reverse portrait</string>
+    <string name="prefs_reverse_land_title">Reverse landscape</string>
+    <string name="prefs_auto_rotate_title">Include auto-rotate</string>
+    <string name="prefs_about_title">About app</string>
+    <string name="prefs_version_title">Version %s</string>
+
+    <!--About-->
+    <string name="about_subtitle">Quick settings tile to&#160;select portrait or&#160;landscape screen orientation.</string>
+    <!--<string name="about_accelerometer_fix">Software fix for&#160;failing Nexus&#160;7 accelerometer.</string>-->
+    <string name="about_credits">Android app developed by Mudar&#160;Noufal.</string>
+    <string name="about_source_code">Open source project, available on GitHub. Source code is released under the GPLv3 license from the Free Software Foundation.</string>
+    <string name="about_rate_app">Please share or rate the app if you like it!</string>
+
+    <!--Buttons-->
+    <string name="btn_try_it">Try it</string>
+
+
+    <!--Snackbar messages-->
+    <string name="snackbar_try_rotation_port">Portrait rotation is set to 0&#160;degrees.</string>
+    <string name="snackbar_try_rotation_port_reverse">Portrait rotation is set to 180&#160;degrees (upside&#160;down).</string>
+    <string name="snackbar_try_rotation_land">Landscape rotation is set to 90&#160;degrees clockwise.</string>
+    <string name="snackbar_try_rotation_land_reverse">Landscape rotation is set to 90&#160;degrees counterclockwise.</string>
+
+    <!--Accessibility-->
+    <string name="desc_about_credits">Credits</string>
+    <string name="desc_about_source_code">Source code</string>
+    <string name="desc_about_rate">Rate app</string>
+
+</resources>

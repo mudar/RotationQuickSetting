@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="@dimen/keyline_3"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:lineSpacingMultiplier="1.1"
+        android:text="@string/about_subtitle"
+        android:textColor="@color/about_subtitle_text"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:id="@+id/about_credits"
+        style="@style/AboutRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/desc_about_credits"
+            android:src="@drawable/ic_person" />
+
+        <TextView
+            style="@style/AboutContentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_credits" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/about_source_code"
+        style="@style/AboutRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/desc_about_source_code"
+            android:src="@drawable/ic_github_mark" />
+
+        <TextView
+            style="@style/AboutContentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_source_code" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/about_rate_app"
+        style="@style/AboutRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/desc_about_rate"
+            android:src="@drawable/ic_thumb_up" />
+
+        <TextView
+            style="@style/AboutContentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_rate_app" />
+    </LinearLayout>
+</LinearLayout>

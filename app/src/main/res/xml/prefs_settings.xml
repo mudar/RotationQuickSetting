@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Orientation-->
+    <PreferenceCategory android:title="@string/prefs_cat_orientation">
+        <SwitchPreference
+            android:icon="@drawable/ic_swap_horiz_circle"
+            android:key="@string/prefs_key_reverse_land"
+            android:title="@string/prefs_reverse_land_title" />
+        <SwitchPreference
+            android:icon="@drawable/ic_swap_vert_circle"
+            android:key="@string/prefs_key_reverse_port"
+            android:title="@string/prefs_reverse_port_title" />
+        <SwitchPreference
+            android:icon="@drawable/ic_screen_rotation"
+            android:key="@string/prefs_key_auto_rotate"
+            android:title="@string/prefs_auto_rotate_title" />
+    </PreferenceCategory>
+    <!--Permission-->
+    <PreferenceCategory android:title="@string/prefs_cat_permission">
+        <Preference
+            android:icon="@drawable/ic_security"
+            android:key="@string/prefs_key_permission_granted"
+            android:title="@string/prefs_permission_granted_title" />
+    </PreferenceCategory>    <!--About-->
+    <PreferenceCategory android:title="@string/prefs_cat_about">
+        <Preference
+            android:key="@string/prefs_key_about"
+            android:title="@string/prefs_about_title" />
+        <!--<Preference-->
+        <!--android:enabled="false"-->
+        <!--android:key="@string/prefs_key_version"-->
+        <!--android:title="@string/prefs_version_title" />-->
+    </PreferenceCategory>
+</PreferenceScreen>
