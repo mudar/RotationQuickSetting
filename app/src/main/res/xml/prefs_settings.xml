@@ -22,13 +22,15 @@
             android:key="@string/prefs_key_permission_granted"
             android:title="@string/prefs_permission_granted_title" />
     </PreferenceCategory>    <!--About-->
-    <PreferenceCategory android:title="@string/prefs_cat_about">
+    <PreferenceCategory
+        android:key="@string/prefs_key_cat_general"
+        android:title="@string/prefs_cat_general">
+        <Preference
+            android:key="@string/prefs_key_help"
+            android:summary="@string/prefs_help_summary"
+            android:title="@string/prefs_help_title" />
         <Preference
             android:key="@string/prefs_key_about"
             android:title="@string/prefs_about_title" />
-        <!--<Preference-->
-        <!--android:enabled="false"-->
-        <!--android:key="@string/prefs_key_version"-->
-        <!--android:title="@string/prefs_version_title" />-->
     </PreferenceCategory>
 </PreferenceScreen>

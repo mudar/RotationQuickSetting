@@ -8,21 +8,24 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
+
+import java.util.Locale;
 
 import ca.mudar.rotationquicksetting.BuildConfig;
 import ca.mudar.rotationquicksetting.Const;
 import ca.mudar.rotationquicksetting.Const.PrefsNames;
 import ca.mudar.rotationquicksetting.R;
+import ca.mudar.rotationquicksetting.data.UserPrefs;
+import ca.mudar.rotationquicksetting.utils.PermissionUtils;
 
-import static android.content.ContentValues.TAG;
 import static ca.mudar.rotationquicksetting.utils.OrientationUtils.ROTATION_LAND;
 import static ca.mudar.rotationquicksetting.utils.OrientationUtils.ROTATION_LAND_REVERSE;
 import static ca.mudar.rotationquicksetting.utils.OrientationUtils.ROTATION_PORT;
@@ -70,7 +73,10 @@ public class SettingsFragment extends PreferenceFragment implements
         mSharedPrefs.registerOnSharedPreferenceChangeListener(this);
 
         mPermissionGranted.setOnPreferenceClickListener(this);
+        findPreference(PrefsNames.HELP).setOnPreferenceClickListener(this);
         findPreference(PrefsNames.ABOUT).setOnPreferenceClickListener(this);
+
+        hideHelpIfPossible();
     }
 
     @Override
@@ -119,12 +125,12 @@ public class SettingsFragment extends PreferenceFragment implements
     public boolean onPreferenceClick(Preference preference) {
         final String key = preference.getKey();
         if (PrefsNames.PERMISSION_GRANTED.equals(key)) {
-            final Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS,
-                    Uri.parse("package:" + getContext().getPackageName()));
-            startActivity(intent);
+            startActivity(PermissionUtils.getPermissionIntent(getContext()));
+            return true;
+        } else if (PrefsNames.HELP.equals(key) && mListener != null) {
+            showHelp();
             return true;
         } else if (PrefsNames.ABOUT.equals(key) && mListener != null) {
-            Log.i(TAG, "onPreferenceClick: ABOUT");
             mListener.onShowAbout();
             return true;
         }
@@ -136,7 +142,7 @@ public class SettingsFragment extends PreferenceFragment implements
         mPermissionGranted.setSummary(getPermissionGrantedSummary());
 
         findPreference(PrefsNames.ABOUT).setSummary(getString(
-                R.string.prefs_version_title, BuildConfig.VERSION_NAME));
+                R.string.prefs_about_summary, BuildConfig.VERSION_NAME));
     }
 
     @StringRes
@@ -188,7 +194,24 @@ public class SettingsFragment extends PreferenceFragment implements
                 .show();
     }
 
+    private void showHelp() {
+        final String language = Locale.getDefault().getLanguage();
+        final Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+        viewIntent.setData(Uri.parse(getResources()
+                .getString(R.string.url_help_quick_settings, language)));
+        startActivity(viewIntent);
+    }
+
+    private void hideHelpIfPossible() {
+        final UserPrefs prefs = UserPrefs.getInstance(getContext());
+        if (!prefs.hasHelp()) {
+            ((PreferenceGroup) findPreference(PrefsNames.CAT_GENERAL))
+                    .removePreference(findPreference(PrefsNames.HELP));
+            prefs.setHelpCompleted();
+        }
+    }
+
     public interface SettingsAboutCallback {
-        public void onShowAbout();
+        void onShowAbout();
     }
 }

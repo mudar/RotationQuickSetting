@@ -8,6 +8,9 @@ import ca.mudar.rotationquicksetting.Const;
 import ca.mudar.rotationquicksetting.Const.PrefsNames;
 import ca.mudar.rotationquicksetting.R;
 
+import static ca.mudar.rotationquicksetting.Const.PrefsNames.HAS_HELP;
+import static ca.mudar.rotationquicksetting.Const.PrefsNames.HAS_ONBOARDING;
+
 /**
  * Created by mudar on 10/05/17.
  */
@@ -43,6 +46,25 @@ public class UserPrefs {
                 Context.MODE_PRIVATE,
                 R.xml.prefs_defaults,
                 false);
+    }
+
+
+    public boolean hasOnboarding() {
+        return mPrefs.getBoolean(HAS_ONBOARDING, true);
+    }
+
+    public void setOnboardingCompleted() {
+        edit().putBoolean(HAS_ONBOARDING, false)
+                .commit();
+    }
+
+    public boolean hasHelp() {
+        return mPrefs.getBoolean(HAS_HELP, true);
+    }
+
+    public void setHelpCompleted() {
+        edit().putBoolean(HAS_HELP, false)
+                .commit();
     }
 
     public boolean isReversePortrait() {

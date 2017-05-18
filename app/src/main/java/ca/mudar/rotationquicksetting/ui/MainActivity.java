@@ -2,8 +2,10 @@ package ca.mudar.rotationquicksetting.ui;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 
+import ca.mudar.rotationquicksetting.Const.FragmentTags;
 import ca.mudar.rotationquicksetting.data.UserPrefs;
 
 /**
@@ -12,12 +14,12 @@ import ca.mudar.rotationquicksetting.data.UserPrefs;
 
 public class MainActivity extends AppCompatActivity implements
         SettingsFragment.SettingsAboutCallback {
-    private final static String FRAGMENT_TAG_SETTINGS = "f_settings";
-    private final static String FRAGMENT_TAG_ABOUT = "f_about";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        showOnboardingIfNecessary();
 
         // Set default preferences
         UserPrefs.setDefaults(getApplicationContext());
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements
         if (savedInstanceState == null) {
             final Fragment fragment = SettingsFragment.newInstance();
             getFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, fragment, FRAGMENT_TAG_SETTINGS)
+                    .replace(android.R.id.content, fragment, FragmentTags.SETTINGS)
                     .commit();
         }
     }
@@ -37,6 +39,16 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onShowAbout() {
         final AboutBottomSheetFragment bottomSheet = AboutBottomSheetFragment.newInstance();
-        bottomSheet.show(getSupportFragmentManager(), FRAGMENT_TAG_ABOUT);
+        bottomSheet.show(getSupportFragmentManager(), FragmentTags.ABOUT);
+    }
+
+    private void showOnboardingIfNecessary() {
+        final UserPrefs prefs = UserPrefs.getInstance(getApplicationContext());
+        if (prefs.hasOnboarding()) {
+            if (!Settings.System.canWrite(this)) {
+                startActivity(OnboardingActivity.newIntent(getApplicationContext()));
+            }
+            prefs.setOnboardingCompleted();
+        }
     }
 }

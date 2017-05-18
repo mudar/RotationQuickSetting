@@ -23,7 +23,10 @@
     <color name="color_primary">@color/purple_500</color>
     <color name="color_primary_dark">@color/purple_700</color>
     <color name="color_accent">@color/purple_a700</color>
-    <color name="color_text">@color/grey_900</color>
+    <color name="color_text_primary">#dd000000</color>
+    <color name="color_text_secondary">#8a000000</color>
+    <color name="color_text_inv_primary">#ffffff</color>
+    <color name="color_text_inv_secondary">#b2ffffff</color>
 
     <!--Style-->
     <color name="app_notification">@color/color_primary_dark</color>
@@ -31,4 +34,8 @@
     <color name="icon_about">@color/icon_prefs</color>
     <color name="snackbar_action_text">@color/purple_200</color>
     <color name="about_subtitle_text">@color/color_primary_dark</color>
+
+    <color name="onboarding_bg">@color/color_primary</color>
+    <color name="onboarding_fg">@color/color_primary_dark</color>
+
 </resources>

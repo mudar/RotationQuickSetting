@@ -4,24 +4,22 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
-import android.net.Uri;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.WindowManager;
 
 import ca.mudar.rotationquicksetting.R;
 import ca.mudar.rotationquicksetting.data.UserPrefs;
 import ca.mudar.rotationquicksetting.utils.OrientationUtils;
+import ca.mudar.rotationquicksetting.utils.PermissionUtils;
 
 /**
  * Created by mudar on 07/05/17.
@@ -34,13 +32,13 @@ public class QuickSettingsService extends TileService {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i(TAG, "onCreate: ");
+
+        UserPrefs.getInstance(getApplicationContext()).setHelpCompleted();
     }
 
     @Override
     public void onStartListening() {
         super.onStartListening();
-        Log.i(TAG, "onStartListening: ");
 
         try {
             updateQuickSettingsTile(getCurrentOrientation(UserPrefs.getInstance(getApplicationContext()).hasAutoRotate()),
@@ -51,15 +49,7 @@ public class QuickSettingsService extends TileService {
     }
 
     @Override
-    public void onStopListening() {
-        super.onStopListening();
-        Log.i(TAG, "onStopListening: ");
-    }
-
-    @Override
     public void onClick() {
-        Log.i(TAG, "onClick: ");
-
         if (Settings.System.canWrite(getApplicationContext())) {
             try {
                 final int newOrientation = toggleOrientation();
@@ -73,7 +63,6 @@ public class QuickSettingsService extends TileService {
     }
 
     private void updateQuickSettingsTile(int orientation, boolean canWriteSettings) throws Settings.SettingNotFoundException {
-        Log.d(TAG, "updateQuickSettingsTile() called with: orientation = [" + orientation + "]");
         final Tile tile = getQsTile();
         tile.setState(canWriteSettings ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
 
@@ -98,14 +87,12 @@ public class QuickSettingsService extends TileService {
      * @return new rotation
      */
     private int toggleOrientation() throws Settings.SettingNotFoundException {
-        Log.i(TAG, "toggleOrientation: ");
         final ContentResolver contentResolver = getContentResolver();
         final UserPrefs userPrefs = UserPrefs.getInstance(getApplicationContext());
 
         if (userPrefs.hasAutoRotate() &&
                 Settings.System.getInt(contentResolver, Settings.System.ACCELEROMETER_ROTATION) == 0) {
             // Enable auto-rotation
-            Log.e(TAG, "Enable auto-rotation");
             Settings.System.putInt(contentResolver, Settings.System.ACCELEROMETER_ROTATION, 1);
             return OrientationUtils.ROTATION_AUTO;
         }
@@ -120,7 +107,6 @@ public class QuickSettingsService extends TileService {
     }
 
     private int getCurrentOrientation(boolean includeAutoRotate) throws Settings.SettingNotFoundException {
-        Log.i(TAG, "getCurrentOrientation: ");
         final ContentResolver contentResolver = getContentResolver();
         final boolean hasAccelerometer = (Settings.System
                 .getInt(contentResolver, Settings.System.ACCELEROMETER_ROTATION) == 1);
@@ -133,12 +119,10 @@ public class QuickSettingsService extends TileService {
     }
 
     private int getUserOrientation() throws Settings.SettingNotFoundException {
-        Log.i(TAG, "getUserOrientation: ");
         return Settings.System.getInt(getContentResolver(), Settings.System.USER_ROTATION);
     }
 
     private int getAccelerometerOrientation() throws Settings.SettingNotFoundException {
-        Log.i(TAG, "getAccelerometerOrientation: ");
         final WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         return windowManager.getDefaultDisplay().getRotation();
     }
@@ -147,12 +131,9 @@ public class QuickSettingsService extends TileService {
      * Create and show a simple notification containing the received GCM message.
      */
     private void showPermissionNotification() {
-        final Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS,
-                Uri.parse("package:" + getPackageName()));
-
         final PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
                 0,
-                intent,
+                PermissionUtils.getPermissionIntent(getApplicationContext()),
                 PendingIntent.FLAG_ONE_SHOT);
 
         final Resources res = getApplicationContext().getResources();

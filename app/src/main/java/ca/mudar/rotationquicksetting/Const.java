@@ -9,13 +9,27 @@ public class Const {
     /**
      * SharedPreferences
      */
-    public static final String APP_PREFS_NAME = "orientation_tile_prefs";
+    public static final String APP_PREFS_NAME = "rotationqs_prefs";
 
     public interface PrefsNames {
+        String CAT_GENERAL = "prefs_cat_general";
+
         String REVERSE_PORT = "prefs_reverse_port";
         String REVERSE_LAND = "prefs_reverse_land";
         String AUTO_ROTATE = "prefs_auto_rotate";
         String PERMISSION_GRANTED = "prefs_permission_granted";
+        String HELP = "prefs_help";
         String ABOUT = "prefs_about";
+        String HAS_ONBOARDING = "has_onboarding";
+        String HAS_HELP = "has_help";
+    }
+
+    public interface FragmentTags {
+        String SETTINGS = "f_settings";
+        String ABOUT = "f_about";
+    }
+
+    public interface RequestCode {
+        int PERMISSION_RESULT = 10;
     }
 }
