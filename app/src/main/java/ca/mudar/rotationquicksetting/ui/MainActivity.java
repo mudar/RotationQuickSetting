@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity implements
 
         showOnboardingIfNecessary();
 
-        // Set default preferences
-        UserPrefs.setDefaults(getApplicationContext());
-
         if (savedInstanceState == null) {
             final Fragment fragment = SettingsFragment.newInstance();
             getFragmentManager().beginTransaction()
