@@ -13,7 +13,7 @@
     <string name="prefs_cat_permission">Permission</string>
     <string name="prefs_cat_orientation">Rotation</string>
     <string name="prefs_cat_general">General</string>
-    <string name="prefs_permission_granted_title">Modify settings permission</string>
+    <string name="prefs_permission_granted_title">Permission to modify settings</string>
     <string name="prefs_permission_granted_on">Granted</string>
     <string name="prefs_permission_granted_off">Not granted, app is disabled</string>
     <string name="prefs_reverse_port_title">Reverse portrait</string>
@@ -33,7 +33,7 @@
 
     <!--Onboarding-->
     <string name="onboarding_title">@string/app_name</string>
-    <string name="onboarding_desc">Quick Settings tile to&#160;select portrait or&#160;landscape screen orientation. Intended as&#160;a&#160;fix for&#160;devices with auto‑rotation accelerometer issues.</string>
+    <string name="onboarding_desc">Add a Quick Settings tile to&#160;select portrait or&#160;landscape screen orientation. Intended as&#160;a&#160;fix for&#160;devices with auto‑rotation accelerometer issues.</string>
 
     <!--Buttons-->
     <string name="btn_try_it">Try it</string>
