@@ -7,8 +7,8 @@ android {
         applicationId "ca.mudar.rotationquicksetting"
         minSdkVersion 24
         targetSdkVersion 25
-        versionCode 10
-        versionName "0.5-alpha"
+        versionCode 11
+        versionName "0.6-beta"
 
         resConfigs "en", "fr"
     }
