@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Rotation Quick Setting</string>
     <string name="activity_main">@string/app_name</string>
-    <string name="activity_onboarding">Welcome!</string>
+    <string name="activity_onboarding">Welcome to RotationQS</string>
     <string name="tile_label">Rotation QS</string>
     <string name="tile_label_port">Portrait</string>
     <string name="tile_label_land">Landscape</string>

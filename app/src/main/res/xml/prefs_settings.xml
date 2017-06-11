@@ -21,7 +21,8 @@
             android:icon="@drawable/ic_security"
             android:key="@string/prefs_key_permission_granted"
             android:title="@string/prefs_permission_granted_title" />
-    </PreferenceCategory>    <!--About-->
+    </PreferenceCategory>
+    <!--About-->
     <PreferenceCategory
         android:key="@string/prefs_key_cat_general"
         android:title="@string/prefs_cat_general">
