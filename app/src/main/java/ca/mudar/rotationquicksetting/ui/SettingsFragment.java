@@ -75,6 +75,7 @@ public class SettingsFragment extends PreferenceFragment implements
         mPermissionGranted.setOnPreferenceClickListener(this);
         findPreference(PrefsNames.HELP).setOnPreferenceClickListener(this);
         findPreference(PrefsNames.ABOUT).setOnPreferenceClickListener(this);
+        findPreference(PrefsNames.EULA).setOnPreferenceClickListener(this);
 
         hideHelpIfPossible();
     }
@@ -127,12 +128,17 @@ public class SettingsFragment extends PreferenceFragment implements
         if (PrefsNames.PERMISSION_GRANTED.equals(key)) {
             startActivity(PermissionUtils.getPermissionIntent(getContext()));
             return true;
-        } else if (PrefsNames.HELP.equals(key) && mListener != null) {
+        } else if (PrefsNames.HELP.equals(key)) {
             showHelp();
             return true;
-        } else if (PrefsNames.ABOUT.equals(key) && mListener != null) {
-            mListener.onShowAbout();
-            return true;
+        } else if (mListener != null) {
+            if (PrefsNames.ABOUT.equals(key)) {
+                mListener.onShowAbout();
+                return true;
+            } else if (PrefsNames.EULA.equals(key)) {
+                mListener.onShowEula();
+                return true;
+            }
         }
 
         return false;
@@ -213,5 +219,7 @@ public class SettingsFragment extends PreferenceFragment implements
 
     public interface SettingsAboutCallback {
         void onShowAbout();
+
+        void onShowEula();
     }
 }

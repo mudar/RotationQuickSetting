@@ -14,6 +14,7 @@
     <color name="yellow_500">#FFEB3B</color>
     <color name="amber_500">#FFC107</color>
     <color name="purple_a700">#AA00FF</color>
+    <color name="grey_50">#fafafa</color>
     <color name="grey_900">#212121</color>
 
     <!--<color name="teal_500">#009688</color>-->
@@ -37,5 +38,6 @@
 
     <color name="onboarding_bg">@color/color_primary</color>
     <color name="onboarding_fg">@color/color_primary_dark</color>
+    <color name="webview_bg">@color/grey_50</color>
 
 </resources>

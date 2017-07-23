@@ -2,6 +2,7 @@
     <string name="app_name">Rotation Quick Setting</string>
     <string name="activity_main">@string/app_name</string>
     <string name="activity_onboarding">Welcome to RotationQS</string>
+    <string name="activity_eula">EULA</string>
     <string name="tile_label">Rotation QS</string>
     <string name="tile_label_port">Portrait</string>
     <string name="tile_label_land">Landscape</string>
@@ -20,9 +21,11 @@
     <string name="prefs_reverse_land_title">Reverse landscape</string>
     <string name="prefs_auto_rotate_title">Include auto-rotate</string>
     <string name="prefs_help_title">Help</string>
-    <string name="prefs_help_summary">How to add a custom Quick Settings tile.</string>
+    <string name="prefs_help_summary">How to add a custom Quick Settings tile</string>
     <string name="prefs_about_title">About</string>
     <string name="prefs_about_summary">Version %s</string>
+    <string name="prefs_eula_title">License</string>
+    <string name="prefs_eula_summary">GNU General Public License</string>
 
     <!--About-->
     <string name="about_subtitle">Quick Settings tile to&#160;select portrait or&#160;landscape screen orientation.</string>

@@ -20,6 +20,7 @@ public class Const {
         String PERMISSION_GRANTED = "prefs_permission_granted";
         String HELP = "prefs_help";
         String ABOUT = "prefs_about";
+        String EULA = "prefs_eula";
         String HAS_ONBOARDING = "has_onboarding";
         String HAS_HELP = "has_help";
     }
@@ -31,5 +32,10 @@ public class Const {
 
     public interface RequestCode {
         int PERMISSION_RESULT = 10;
+    }
+
+    // Assets
+    public interface LocalAssets {
+        String LICENSE = "gpl-3.0-standalone.html";
     }
 }

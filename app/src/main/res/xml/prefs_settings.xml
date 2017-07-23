@@ -33,5 +33,9 @@
         <Preference
             android:key="@string/prefs_key_about"
             android:title="@string/prefs_about_title" />
+        <Preference
+            android:key="@string/prefs_key_eula"
+            android:summary="@string/prefs_eula_summary"
+            android:title="@string/prefs_eula_title" />
     </PreferenceCategory>
 </PreferenceScreen>
