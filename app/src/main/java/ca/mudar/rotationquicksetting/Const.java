@@ -20,7 +20,6 @@ public class Const {
         String PERMISSION_GRANTED = "prefs_permission_granted";
         String HELP = "prefs_help";
         String ABOUT = "prefs_about";
-        String EULA = "prefs_eula";
         String HAS_ONBOARDING = "has_onboarding";
         String HAS_HELP = "has_help";
     }

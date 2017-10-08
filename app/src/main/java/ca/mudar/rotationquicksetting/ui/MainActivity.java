@@ -39,15 +39,6 @@ public class MainActivity extends AppCompatActivity implements
         bottomSheet.show(getSupportFragmentManager(), FragmentTags.ABOUT);
     }
 
-    /**
-     * Implements SettingsFragment.SettingsAboutCallback
-     * Shows EULA activity
-     */
-    @Override
-    public void onShowEula() {
-        startActivity(EulaActivity.newIntent(getApplicationContext()));
-    }
-
     private void showOnboardingIfNecessary() {
         final UserPrefs prefs = UserPrefs.getInstance(getApplicationContext());
         if (prefs.hasOnboarding()) {

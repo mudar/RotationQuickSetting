@@ -24,14 +24,13 @@
     <string name="prefs_help_summary">How to add a custom Quick Settings tile</string>
     <string name="prefs_about_title">About</string>
     <string name="prefs_about_summary">Version %s</string>
-    <string name="prefs_eula_title">License</string>
-    <string name="prefs_eula_summary">GNU General Public License</string>
 
     <!--About-->
     <string name="about_subtitle">Quick Settings tile to&#160;select portrait or&#160;landscape screen orientation.</string>
     <!--<string name="about_accelerometer_fix">Software fix for&#160;devices with accelerometer auto‑rotation issues.</string>-->
     <string name="about_credits">Android app developed by Mudar&#160;Noufal.</string>
-    <string name="about_source_code">Open source project, available on GitHub. Source code is released under the GPLv3 license from the Free Software Foundation.</string>
+    <string name="about_source_code">Open source project, available on GitHub.</string>
+    <string name="about_license">Source code is released under the GPLv3 license from the Free Software Foundation.</string>
     <string name="about_rate_app">Please share or rate the app if you like it!</string>
 
     <!--Onboarding-->
@@ -53,6 +52,7 @@
     <!--Accessibility-->
     <string name="desc_about_credits">Credits</string>
     <string name="desc_about_source_code">Source code</string>
+    <string name="desc_about_license">License</string>
     <string name="desc_about_rate">Rate app</string>
 
 </resources>

@@ -13,6 +13,5 @@
     <string name="prefs_key_auto_rotate">prefs_auto_rotate</string>
     <string name="prefs_key_help">prefs_help</string>
     <string name="prefs_key_about">prefs_about</string>
-    <string name="prefs_key_eula">prefs_eula</string>
 
 </resources>

@@ -39,6 +39,8 @@ public class AboutBottomSheetFragment extends BottomSheetDialogFragment implemen
             showWebsite(R.string.url_mudar_ca);
         } else if (id == R.id.about_source_code) {
             showWebsite(R.string.url_github);
+        } else if (id == R.id.about_license) {
+            startActivity(EulaActivity.newIntent(getActivity()));
         } else if (id == R.id.about_rate_app) {
             showWebsite(R.string.url_playstore);
         }
@@ -47,6 +49,7 @@ public class AboutBottomSheetFragment extends BottomSheetDialogFragment implemen
     private void setupListeners(View view) {
         view.findViewById(R.id.about_credits).setOnClickListener(this);
         view.findViewById(R.id.about_source_code).setOnClickListener(this);
+        view.findViewById(R.id.about_license).setOnClickListener(this);
         view.findViewById(R.id.about_rate_app).setOnClickListener(this);
     }
 

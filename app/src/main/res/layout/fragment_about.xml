@@ -58,6 +58,27 @@
             android:text="@string/about_source_code" />
     </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/about_license"
+        style="@style/AboutRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/desc_about_license"
+            android:src="@drawable/ic_description" />
+
+        <TextView
+            style="@style/AboutContentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_license" />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/about_rate_app"
         style="@style/AboutRow"
