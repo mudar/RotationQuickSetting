@@ -26,11 +26,13 @@ class AboutBottomSheetFragment : BottomSheetDialogFragment(),
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_about, container, false)
+        return inflater?.inflate(R.layout.fragment_about, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         setupListeners()
-
-        return view
     }
 
     override fun onClick(view: View) {
@@ -43,10 +45,10 @@ class AboutBottomSheetFragment : BottomSheetDialogFragment(),
     }
 
     private fun setupListeners() {
-        about_credits.setOnClickListener(this)
-        about_source_code.setOnClickListener(this)
-        about_license.setOnClickListener(this)
-        about_rate_app.setOnClickListener(this)
+        about_credits?.setOnClickListener(this)
+        about_source_code?.setOnClickListener(this)
+        about_license?.setOnClickListener(this)
+        about_rate_app?.setOnClickListener(this)
     }
 
     private fun showWebsite(@StringRes website: Int) {

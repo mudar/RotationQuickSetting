@@ -26,7 +26,7 @@ class OnboardingActivity : AppCompatActivity(),
         setupListeners()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RequestCode.PERMISSION_RESULT && Settings.System.canWrite(this)) {
