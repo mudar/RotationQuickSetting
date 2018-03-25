@@ -25,8 +25,8 @@ class AboutBottomSheetFragment : BottomSheetDialogFragment(),
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_about, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_about, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -39,7 +39,9 @@ class AboutBottomSheetFragment : BottomSheetDialogFragment(),
         when (view.id) {
             R.id.about_credits -> showWebsite(R.string.url_mudar_ca)
             R.id.about_source_code -> showWebsite(R.string.url_github)
-            R.id.about_license -> startActivity(EulaActivity.newIntent(activity))
+            R.id.about_license -> activity?.let {
+                startActivity(EulaActivity.newIntent(it))
+            }
             R.id.about_rate_app -> showWebsite(R.string.url_playstore)
         }
     }
