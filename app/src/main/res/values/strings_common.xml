@@ -4,14 +4,14 @@
     <string name="url_playstore" translatable="false">http://play.google.com/store/apps/details?id=ca.mudar.rotationquicksetting</string>
     <string name="url_mudar_ca" translatable="false">http://www.mudar.ca/</string>
     <string name="url_github" translatable="false">https://github.com/mudar/RotationQuickSetting</string>
-    <string name="url_help_quick_settings">https://support.google.com/android/answer/6111329?hl=%s</string>
+    <string name="url_help_quick_settings" translatable="false">https://support.google.com/android/answer/6111329?hl=%s</string>
 
-    <string name="prefs_key_cat_general">prefs_cat_general</string>
-    <string name="prefs_key_permission_granted">prefs_permission_granted</string>
-    <string name="prefs_key_reverse_port">prefs_reverse_port</string>
-    <string name="prefs_key_reverse_land">prefs_reverse_land</string>
-    <string name="prefs_key_auto_rotate">prefs_auto_rotate</string>
-    <string name="prefs_key_help">prefs_help</string>
-    <string name="prefs_key_about">prefs_about</string>
+    <string name="prefs_key_cat_general" translatable="false">prefs_cat_general</string>
+    <string name="prefs_key_permission_granted" translatable="false">prefs_permission_granted</string>
+    <string name="prefs_key_reverse_port" translatable="false">prefs_reverse_port</string>
+    <string name="prefs_key_reverse_land" translatable="false">prefs_reverse_land</string>
+    <string name="prefs_key_auto_rotate" translatable="false">prefs_auto_rotate</string>
+    <string name="prefs_key_help" translatable="false">prefs_help</string>
+    <string name="prefs_key_about" translatable="false">prefs_about</string>
 
 </resources>
