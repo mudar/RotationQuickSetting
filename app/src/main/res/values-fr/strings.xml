@@ -9,6 +9,8 @@
     <string name="tile_label_auto_rotate">Rotation automatique</string>
     <string name="notify_permissions_title">Demande de permissions système</string>
     <string name="notify_permissions_text">Appuyer pour autoriser la modification des paramètres de rotation.</string>
+    <string name="notify_channel_name">Par défaut</string>
+    <string name="notify_channel_description">Afficher la demande de permissions système.</string>
 
     <!--Settings-->
     <string name="prefs_cat_permission">Permission</string>

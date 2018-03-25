@@ -3,17 +3,17 @@ package ca.mudar.rotationquicksetting.service
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
-import android.graphics.drawable.BitmapDrawable
+import android.content.ContextWrapper
 import android.graphics.drawable.Icon
 import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import android.support.v4.app.NotificationCompat
-import android.support.v4.content.ContextCompat
 import android.view.WindowManager
-
+import ca.mudar.rotationquicksetting.Const
 import ca.mudar.rotationquicksetting.R
 import ca.mudar.rotationquicksetting.data.UserPrefs
+import ca.mudar.rotationquicksetting.utils.NotificationUtils
 import ca.mudar.rotationquicksetting.utils.OrientationUtils
 import ca.mudar.rotationquicksetting.utils.PermissionUtils
 
@@ -129,6 +129,8 @@ class QuickSettingsService : TileService() {
      * Create and show a simple notification containing the received GCM message.
      */
     private fun showPermissionNotification() {
+        NotificationUtils.createNotifyChannelIfNecessary(ContextWrapper(applicationContext))
+
         val pendingIntent = PendingIntent.getActivity(applicationContext,
                 0,
                 PermissionUtils.getPermissionIntent(applicationContext),
@@ -137,13 +139,8 @@ class QuickSettingsService : TileService() {
         val contentTitle = resources.getString(R.string.notify_permissions_title)
         val contentText = resources.getString(R.string.notify_permissions_text)
 
-        val drawable = ContextCompat.getDrawable(applicationContext, R.mipmap.ic_launcher)
-        val bitmap = (drawable as BitmapDrawable).bitmap
-
-        // TODO refactor to handle channels
-        val builder = NotificationCompat.Builder(applicationContext)
+        val builder = NotificationCompat.Builder(applicationContext, Const.NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_screen_lock_rotation)
-                .setLargeIcon(bitmap)
                 .setColor(getColor(R.color.app_notification))
                 .setContentTitle(contentTitle)
                 .setContentText(contentText)

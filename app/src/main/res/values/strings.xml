@@ -9,6 +9,8 @@
     <string name="tile_label_auto_rotate">Auto-rotate</string>
     <string name="notify_permissions_title">System permission request</string>
     <string name="notify_permissions_text">Tap to allow modifying screen rotation setting.</string>
+    <string name="notify_channel_name">Default</string>
+    <string name="notify_channel_description">Displays system permission request.</string>
 
     <!--Settings-->
     <string name="prefs_cat_permission">Permission</string>

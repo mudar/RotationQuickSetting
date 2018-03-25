@@ -1,5 +1,7 @@
 package ca.mudar.rotationquicksetting
 
+import android.os.Build
+
 /**
  * Created by mudar on 10/05/17.
  */
@@ -37,4 +39,9 @@ object Const {
     object LocalAssets {
         val LICENSE = "gpl-3.0-standalone.html"
     }
+
+    const val NOTIFICATION_CHANNEL_ID = "atPeace"
+
+    // Device compatibility
+    val SUPPORTS_OREO = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
 }
